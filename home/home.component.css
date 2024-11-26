@@ -1,0 +1,13 @@
+.homeheader{
+    background: -webkit-linear-gradient(left, #3931af, #00c6ff); 
+    color: brown;
+    font-size: 16px;
+   /* background-color: paleturquoise; */
+    font-weight: bold;
+}
+.logosize{
+    width: 3%;
+}
+.headeralign{
+    margin-left:50%;
+}

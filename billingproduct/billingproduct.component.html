@@ -1,0 +1,98 @@
+<app-home></app-home>
+<div class="container text-left">
+  <div class="row justify-content-start cardtop">
+    
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header cardheading"><i class="fa fa-keyboard-o"></i>
+          Start Billing ....
+        </div>
+        <div class="card-body">
+          
+          <form #productForm="ngForm" class="card-text">
+            <div class="form-group">
+                <label class="form-label">Product Name *</label>
+            </div>
+            <div class="form-group">
+                <!-- <input type="text" class="form-control" name="product.productName" required placeholder="Product Name" [(ngModel)]="product.productName" #productName="ngModel" /> -->
+                <select [(ngModel)]="product.productId" class="form-control" name="productName" #productId="ngModel" >
+                  <option class="active" value=0 selected>--Select--</option>
+                  <option *ngFor="let prod of products; let i = index;" value="{{prod.productId}}" >{{prod.productName}}</option>
+              </select>
+                <em class="error" *ngIf="product.productId == 0 && productId.touched">Product Name is required</em>
+            </div>
+           
+            <div class="form-group">
+                <label class="form-label">Quantity *</label>
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control" required name="quantity" #quantity="ngModel" placeholder="Quantity" [(ngModel)]="product.quantity" />
+                <em class="error" *ngIf="quantity.invalid && quantity.touched && quantity.value!=0">Quantity is required</em>
+                <em class="error" *ngIf="quantityValid == false">Available quantity : {{product.quantity}}.Please make sure order below quantities.</em>
+            </div><br/>
+          <div class="form-group">
+                <input type="submit" class="btn btn-primary cardheading" [disabled]="productForm.form.invalid" value="Bill Item" (click)="billProductData(product);"/>
+                <!-- <button name="addItem" >Add Item</button> -->
+                
+            </div>
+      
+        </form>
+        <!-- <div class="card-footer bg-transparent border-success">Footer</div> -->
+        </div>
+      </div>
+      
+     
+    </div>
+  
+    <div class="col-md-6">
+    <div class="card">
+    <div class="card-header cardheading"><i class="fa fa-vcard"></i> Invoice Report
+      <button class="btn btn-sm btn-primary cardheading pull-right" printSectionId="print-section" ngxPrint>
+      <i class="fa fa-print"></i>  Print</button> </div>
+      <!-- <div id="print-section">
+        <p style="text-align: center;"><b>hello</b></p>
+      </div> -->
+      <div  class="card-text">
+      <div id="print-section">
+        <p style="text-align: center;"><b>{{userShopName}}</b></p><br/>
+        <p style="text-align: left;"><b>Date : </b>{{todayDate | date:'medium'}}</p>
+        <p style="text-align: left;"><b>Bill No:</b>83124</p>
+      
+        <table class="table">
+            <thead>
+            <tr>
+              <th scope="col">Product Name</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Unit</th>
+              <th scope="col">Price Per(Kg/Lit/No)</th>
+              <th scope="col">GST (%)</th>
+              <th scope="col">Total Price(Rs)</th>
+            </tr>
+            </thead>
+            <tbody>
+           <tr *ngFor="let product of productDetails; let i=index;">
+              <td>{{product.productName}}</td>
+              <td>{{product.quantity}}</td>
+              <td>{{product.unit}}</td>
+              <td>{{product.marginPrice}}</td>
+              <td>{{product.gstNo}}</td>
+              <td>{{addGst(product)}}</td>
+              <td><button class="btn btn-outline-danger" (click)="billDelete(i,product);"><i class="fa fa-trash"></i></button></td>
+            </tr> 
+            </tbody>
+            </table>
+            
+            <p style="text-align: right;"><b>Total : {{total}}</b></p>
+            <p style="text-align: center;"><b>Thank you !!! Come Again</b></p>
+            <p style="text-align: center;"><b>Have a nice day !!!</b></p>
+            
+        </div></div>
+        <div class="card-footer"><button class="btn btn-primary cardheading" name="total" (click)="totalProduct()">Total</button></div>
+            
+    </div>
+    </div>
+    </div>
+    
+  </div>
+
+

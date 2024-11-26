@@ -1,0 +1,222 @@
+<app-home></app-home>
+<!-- Button trigger modal -->
+
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#productModal">
+    Add New Product
+  </button> -->
+  
+  
+  <!-- Modal -->
+  <div class="modal fade" id="productModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Product Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form class="col-md-6" #productForm="ngForm">
+                <div class="form-group">
+                    <label class="form-label">Product Name *</label>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="product.productName" required placeholder="Product Name" [(ngModel)]="product.productName" #productName="ngModel" />
+                    <em class="error" *ngIf="product.productName == '' && productName.touched">Product Name is required</em>
+                </div>
+               
+                <div class="form-group">
+                    <label class="form-label">Quantity *</label>
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" required name="quantity" #quantity="ngModel" placeholder="Quantity" [(ngModel)]="product.quantity" />
+                    <em class="error" *ngIf="quantity.invalid && quantity.touched && quantity.value!=0">Quantity is required</em>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Unit *</label>
+                </div>
+                <div class="form-group">
+                    <select class="form-control" [(ngModel)]="product.unit" required  name="unit" #unit="ngModel">
+                        <option class="hidden" value="select" selected>--Select--</option>
+                        <option value="kg">Kilogram</option>
+                        <option value="lit">Litre</option>
+                        <option value="no">Numbers</option>
+                    </select>
+                    <em class="error" *ngIf="unit.invalid && unit.touched">Unit is required</em>
+                </div> 
+                <div class="form-group">
+                    <label class="form-label">Orginal Price(rs) *</label>
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" #originalPrice="ngModel" name="originalPrice" required placeholder="Price" [(ngModel)]="product.originalPrice" />
+                    <em class="error" *ngIf="originalPrice.invalid && originalPrice.touched">Original price is required</em>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Margin Price(rs) *</label>
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" name="marginPrice" #marginPrice="ngModel" required placeholder="Margin Price" [(ngModel)]="product.marginPrice" />
+                    <em class="error" *ngIf="marginPrice.invalid && marginPrice.touched">Margin Price is required</em>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">GST (%) *</label>
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control"  name="gstNo" #gst="ngModel" required placeholder="GST" [(ngModel)]="product.gstNo" />
+                    <em class="error" *ngIf="gst.invalid && gst.touched">GST(%) is required</em>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btnAdd" [disabled]="productForm.form.invalid" value="Add Product" (click)="addProduct(product);"/>
+                </div>
+
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save Product</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<div class="container text-left">
+  <div class="row justify-content-start cardtop">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header cardheading">Add New Item <i class="fa fa-hand-o-down"></i></div>
+          <div class="card-body">
+            <form class="col-md-6" #productForm="ngForm">
+              <div class="form-group">
+                  <label class="form-label">Product Name *</label>
+              </div>
+              <div class="form-group">
+                  <input type="text" class="form-control" name="product.productName" required placeholder="Product Name" [(ngModel)]="product.productName" #productName="ngModel" />
+                  <em class="error" *ngIf="product.productName == '' && productName.touched">Product Name is required</em>
+              </div>
+             
+              <div class="form-group">
+                  <label class="form-label">Quantity *</label>
+              </div>
+              <div class="form-group">
+                  <input type="number" class="form-control" required name="quantity" #quantity="ngModel" placeholder="Quantity" [(ngModel)]="product.quantity" />
+                  <em class="error" *ngIf="quantity.invalid && quantity.touched && quantity.value!=0">Quantity is required</em>
+              </div>
+              
+              <div class="form-group">
+                  <label class="form-label">Unit *</label>
+              </div>
+              <div class="form-group">
+                  <select class="form-control" [(ngModel)]="product.unit" required  name="unit" #unit="ngModel">
+                      <option class="hidden" value="select" selected>--Select--</option>
+                      <option value="kg">Kilogram</option>
+                      <option value="lit">Litre</option>
+                      <option value="no">Numbers</option>
+                  </select>
+                  <em class="error" *ngIf="unit.invalid && unit.touched">Unit is required</em>
+              </div> 
+              <div class="form-group">
+                  <label class="form-label">Orginal Price(rs) *</label>
+              </div>
+              <div class="form-group">
+                  <input type="number" class="form-control" #originalPrice="ngModel" name="originalPrice" required placeholder="Price" [(ngModel)]="product.originalPrice" />
+                  <em class="error" *ngIf="originalPrice.invalid && originalPrice.touched">Original price is required</em>
+              </div>
+              <div class="form-group">
+                  <label class="form-label">Margin Price(rs) *</label>
+              </div>
+              <div class="form-group">
+                  <input type="number" class="form-control" name="marginPrice" #marginPrice="ngModel" required placeholder="Margin Price" [(ngModel)]="product.marginPrice" />
+                  <em class="error" *ngIf="marginPrice.invalid && marginPrice.touched">Margin Price is required</em>
+              </div>
+              <div class="form-group">
+                  <label class="form-label">GST (%) *</label>
+              </div>
+              <div class="form-group">
+                  <input type="number" class="form-control"  name="gstNo" #gst="ngModel" required placeholder="GST" [(ngModel)]="product.gstNo" />
+                  <em class="error" *ngIf="gst.invalid && gst.touched">GST(%) is required</em>
+              </div>
+              <div class="form-group">
+                  <button type="submit" class="btn btn-primary cardheading" [disabled]="productForm.form.invalid" (click)="addProduct(product);">{{btnText}}</button>
+                  <!-- <input type="submit" class="btn btn-primary cardheading" [disabled]="productForm.form.invalid && editValid == true" value="Update" (click)="updateProduct(product);"/> -->
+              </div>
+
+          </form>
+          </div>
+
+        </div>  
+      </div>
+<div class="col-md-8">
+  <div class="card">
+    <div class="card-header cardheading"><i class="fa fa-cart-plus"></i> Inventory Details
+    <button type="button" class="btn btn-sm btn-outline-warning cardheading pull-right" data-bs-toggle="modal" data-bs-target="#productModal">
+      <i class="fa fa-plus" data-toggle="tooltip" title="Add Product"></i>
+</button></div>
+  <div class="card-body">
+<table class="table">
+    <thead>
+    <tr>
+
+      <!-- <td><label>Product Id</label></td> -->
+      <th class="col">Product Name</th>
+      <th class="col">Quantity</th>
+      <th class="col">Unit</th>
+      <th class="col">Original Price</th>
+      <th class="col">Margin Price</th>
+      <th class="col">GST (%)</th>
+      <th class="col">Action</th>
+      
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let prod of productDetails; let i = index;">
+      <td>{{prod.productName}}</td>
+      <td>{{prod.quantity}}</td>
+      <td>{{prod.unit}}</td>
+      <td>{{prod.originalPrice}}</td>
+      <td>{{prod.marginPrice}}</td>
+      <td>{{prod.gstNo}}</td>
+      <td>
+        <button type="button" class="btn btn-outline-warning"  (click)="editProduct(i,prod);">
+          <i class="fa fa-edit" data-toggle="tooltip" title="Edit"></i>
+        </button>
+        <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="deletePreProduct(i,prod.productId);">
+          <i class="fa fa-trash" data-toggle="tooltip" title="Delete"></i>
+        </button>
+      </tr>
+    </tbody>
+    </table>
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+
+
+
+    <!-- Delete Modal -->
+
+    <div class="modal fade" #deleteModal id="deleteModal" role="dialog" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Delete Product</h4>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              
+             
+            </div>
+            <div class="modal-body">
+                <p>Are you sure want to Delete this product?</p> 
+            </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" (click)="deleteProduct()">Delete</button>
+          </div>
+          </div>
+        </div>
+    </div>
+
+
+    

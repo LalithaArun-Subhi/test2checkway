@@ -1,0 +1,168 @@
+<!-- <div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-9 register-right">
+        <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <h3 class="register-heading">Smart Way Go...</h3>
+            <div class="row register-form">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="First Name *" value="" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Last Name *" value="" />
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder="Password *" value="" />
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control"  placeholder="Confirm Password *" value="" />
+                    </div>
+                    <div class="form-group">
+                        <div class="maxl">
+                            <label class="radio inline"> 
+                                <input type="radio" name="gender" value="male" checked>
+                                <span> Male </span> 
+                            </label>
+                            <label class="radio inline"> 
+                                <input type="radio" name="gender" value="female">
+                                <span>Female </span> 
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="Your Email *" value="" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Your Phone *" value="" />
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control">
+                            <option class="hidden"  selected disabled>Please select your Sequrity Question</option>
+                            <option>What is your Birthdate?</option>
+                            <option>What is Your old Phone Number</option>
+                            <option>What is your Pet Name?</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Enter Your Answer *" value="" />
+                    </div>
+                    <input type="submit" class="btnRegister"  value="Register"/>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <h3  class="register-heading">Apply as a Hirer</h3>
+            <div class="row register-form">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="First Name *" value="" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Last Name *" value="" />
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="Email *" value="" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" maxlength="10" minlength="10" class="form-control" placeholder="Phone *" value="" />
+                    </div>
+
+
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder="Password *" value="" />
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder="Confirm Password *" value="" />
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control">
+                            <option class="hidden"  selected disabled>Please select your Sequrity Question</option>
+                            <option>What is your Birthdate?</option>
+                            <option>What is Your old Phone Number</option>
+                            <option>What is your Pet Name?</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="`Answer *" value="" />
+                    </div>
+                    <input type="submit" class="btnRegister"  value="Register"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<div class="container register">
+    <div class="row">
+        <div class="col-md-3 register-left">
+            
+            <!-- <h3>Welcome</h3>
+            <p>Enjoy Your Shopping !!! Budget Billing</p>
+            <img src="assets/BillImage.png" alt=""/> -->
+        </div>
+        <div class="col-md-9 register-right">
+            <h3 class="register-heading">Register User</h3>
+            
+            <div class="row register-form">
+                <div class="col-md-3"></div>
+                <form  #signInForm="ngForm" class="col-md-6">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="username" required #username="ngModel"   placeholder="User Name *" [(ngModel)]="user.username" />
+                        <em class="error" *ngIf="username.invalid && username.touched">UserName is required</em>
+                        <br/>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="password" required #password="ngModel" placeholder="Password *" [(ngModel)]="user.password" />
+                        <em class="error" *ngIf="password.invalid && password.touched">Password is required</em>
+                        <br/>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="confirmpassword" required #confirmpassword="ngModel"   placeholder="Confirm Password*" [(ngModel)]="user.confirmPassword" />
+                        <em class="error" *ngIf="confirmpassword.invalid && confirmpassword.touched">Confirm Password is required</em>
+                        <br/>
+                    </div>
+
+                    
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="email" required #email="ngModel"   placeholder="Email *" [(ngModel)]="user.email" />
+                        <em class="error" *ngIf="email.invalid && email.touched">Email is required</em>
+                        <br/>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="number" class="form-control" name="mobilenumber" required #mobilenumber="ngModel"   placeholder="Mobile Number*" [(ngModel)]="user.mobileNumber" />
+                        <em class="error" *ngIf="mobilenumber.invalid && mobilenumber.touched">Mobile number is required</em>
+                        <br/>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="shopname" required #shopname="ngModel"   placeholder="Shop Name*" [(ngModel)]="user.shopName" />
+                        <em class="error" *ngIf="shopname.invalid && shopname.touched">Shop name is required</em>
+                        <br/>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="address" required #address="ngModel"   placeholder="Address*" [(ngModel)]="user.address" />
+                        <em class="error" *ngIf="address.invalid && address.touched">Shop address is required</em>
+                        <br/>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" [disabled]="signInForm.form.invalid"  class="btnRegister"  value="Register" (click)="registerUser(user)"/>
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+        
+    </div>
+
+</div>
